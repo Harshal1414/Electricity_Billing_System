@@ -2,14 +2,16 @@ package electricity.billing.system;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Login extends JFrame {
+public class Login extends JFrame implements ActionListener {
     JTextField userText, passText;
     Choice loginChoice;
     JButton loginButton, cancelButton, signupButton;
     Login(){
         super("Login");
-        getContentPane().setBackground(Color.gray);
+        getContentPane().setBackground(Color.white);
         JLabel userName = new JLabel("UserName");
         userName.setBounds(300, 60, 100, 20);
         add(userName);
@@ -38,14 +40,17 @@ public class Login extends JFrame {
 
         loginButton = new JButton("Login");
         loginButton.setBounds(310, 180,100,20);
+        loginButton.addActionListener(this);
         add(loginButton);
 
         cancelButton = new JButton("Cancel");
         cancelButton.setBounds(435,180,100,20);
+        cancelButton.addActionListener(this);
         add(cancelButton);
 
         signupButton = new JButton("Sign-up");
         signupButton.setBounds(373, 212,100,20);
+        signupButton.addActionListener(this);
         add(signupButton);
 
         ImageIcon profileOne = new ImageIcon(ClassLoader.getSystemResource("Icon/profile.png"));
@@ -60,6 +65,21 @@ public class Login extends JFrame {
         setLayout(null);
         setVisible(true);
     }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == loginButton){
+            
+        }
+        else if (e.getSource() == cancelButton) {
+            setVisible(false);
+        }
+        else if(e.getSource() == signupButton){
+            setVisible(false);
+            new Signup();
+        }
+    }
+
     public static void main(String[] args) {
         new Login();
     }
