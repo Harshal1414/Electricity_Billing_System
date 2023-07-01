@@ -119,7 +119,20 @@ public class Signup extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == create){
-
+            String hloginAs = loginAsCho.getSelectedItem();
+            String husername = userText.getText();
+            String hname = nameText.getText();
+            String hpassword = passText.getText();
+            String hmeter = meterText.getText();
+            try{
+                Database d = new Database();
+                String query = null;
+                query = "insert into Signup value('"+hmeter+"', '"+husername+"', '"+hname+"', '"+hpassword+"', '"+hloginAs+"')";
+                d.statement.executeUpdate(query);
+            }
+            catch(Exception ee){
+                ee.printStackTrace();
+            }
         }
         else if (e.getSource() == back) {
             setVisible(false);
