@@ -96,10 +96,38 @@ public class MainClass extends JFrame {
         genBill.setIcon(new ImageIcon(genBillImage));
         bill.add(genBill);
 
+        JMenu utility = new JMenu("Utility");
+        utility.setFont(new Font("serif", Font.PLAIN, 15));
+        menuBar.add(utility);
+
+        JMenuItem notepad = new JMenuItem("Notepad");
+        notepad.setFont(new Font("monospaced", Font.PLAIN,14));
+        ImageIcon notepadImg = new ImageIcon(ClassLoader.getSystemResource("icon/notepad.png"));
+        Image notepadImage = notepadImg.getImage().getScaledInstance(20,20,Image.SCALE_DEFAULT);
+        notepad.setIcon(new ImageIcon(notepadImage));
+        utility.add(notepad);
+
+        JMenuItem calculator = new JMenuItem("Calculator");
+        calculator.setFont(new Font("monospaced", Font.PLAIN,14));
+        ImageIcon calculatorImg = new ImageIcon(ClassLoader.getSystemResource("icon/calculator.png"));
+        Image calculatorImage = calculatorImg.getImage().getScaledInstance(20,20,Image.SCALE_DEFAULT);
+        calculator.setIcon(new ImageIcon(calculatorImage));
+        utility.add(calculator);
+
+        JMenu exit = new JMenu("Exit");
+        exit.setFont(new Font("serif", Font.PLAIN, 15));
+        menuBar.add(exit);
+
+        JMenuItem exitItem = new JMenuItem("Exit");
+        exitItem.setFont(new Font("monospaced", Font.PLAIN,14));
+        ImageIcon exitImg = new ImageIcon(ClassLoader.getSystemResource("icon/exit.png"));
+        Image exitImage = exitImg.getImage().getScaledInstance(20,20,Image.SCALE_DEFAULT);
+        exitItem.setIcon(new ImageIcon(exitImage));
+        exit.add(exitItem);
+
         setLayout(new FlowLayout());
         setVisible(true);
     }
-
     public static void main(String[] args) {
         new MainClass();
     }
