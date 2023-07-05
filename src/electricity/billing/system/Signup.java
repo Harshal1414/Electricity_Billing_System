@@ -127,8 +127,17 @@ public class Signup extends JFrame implements ActionListener {
             try{
                 Database d = new Database();
                 String query = null;
-                query = "insert into Signup value('"+hmeter+"', '"+husername+"', '"+hname+"', '"+hpassword+"', '"+hloginAs+"')";
+                if (loginAsCho.equals("Admin")) {
+                    query = "insert into Signup value('" + hmeter + "', '" + husername + "', '" + hname + "','" + hpassword + "','" + hloginAs + "')";
+                }
+                else {
+                    query = "update Signup set username = '"+husername+"', password = '" +hpassword+"', usertype = '"+hloginAs+"' where meter_no = '"+hmeter+"'";
+                }
                 d.statement.executeUpdate(query);
+
+                JOptionPane.showMessageDialog(null, "Account created");
+                setVisible(false);
+                new Login();
             }
             catch(Exception ee){
                 ee.printStackTrace();
