@@ -148,7 +148,6 @@ public class Signup extends JFrame implements ActionListener {
             new Login();
         }
     }
-
     public static void main(String[] args) {
         new Signup();
     }
