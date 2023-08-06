@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 
 public class Login extends JFrame implements ActionListener {
     JTextField userText, passText;
@@ -69,7 +70,26 @@ public class Login extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == loginButton){
-            
+            String susername = userText.getText();
+            String spassword = passText.getText();
+            String user = loginChoice.getSelectedItem();
+
+            try{
+                Database c = new Database();
+                String query = "select * from Signup where username = '"+susername+"' and password = '"+spassword+"' and usertype = '"+user+"'";
+                ResultSet resultSet = c.statement.executeQuery(query);
+
+                if(resultSet.next()){
+                    setVisible(false);
+                    new MainClass();
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Invalid Login");
+                }
+            }
+            catch (Exception E){
+
+            }
         }
         else if (e.getSource() == cancelButton) {
             setVisible(false);
