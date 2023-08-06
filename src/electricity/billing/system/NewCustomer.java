@@ -5,9 +5,9 @@ import java.awt.*;
 import java.util.Random;
 
 public class NewCustomer extends JFrame {
-    JLabel heading, customerName, meterNum, address, city, state, email, phone;
+    JLabel heading, customerName, meterNum,meterNumText, address, city, state, email, phone;
     JButton next, cancel;
-    TextField nameText, meterNumText, addressText, cityText, stateText, emailText, phoneText;
+    TextField nameText, addressText, cityText, stateText, emailText, phoneText;
     NewCustomer(){
         super("New Customer");
 
@@ -33,7 +33,7 @@ public class NewCustomer extends JFrame {
         meterNum.setBounds(50, 120, 100, 20);
         panel.add(meterNum);
 
-        meterNumText = new TextField("");
+        meterNumText = new JLabel("");
         meterNumText.setBounds(180, 120, 150, 20);
         panel.add(meterNumText);
 
