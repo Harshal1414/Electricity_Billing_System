@@ -2,9 +2,11 @@ package electricity.billing.system;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Random;
 
-public class NewCustomer extends JFrame {
+public class NewCustomer extends JFrame implements ActionListener {
     JLabel heading, customerName, meterNum,meterNumText, address, city, state, email, phone;
     JButton next, cancel;
     TextField nameText, addressText, cityText, stateText, emailText, phoneText;
@@ -81,12 +83,14 @@ public class NewCustomer extends JFrame {
         next.setBounds(120, 390, 100, 25);
         next.setBackground(Color.black);
         next.setForeground(Color.white);
+        next.addActionListener(this);
         panel.add(next);
 
         cancel = new JButton("Cancel");
         cancel.setBounds(250, 390, 100, 25);
         cancel.setBackground(Color.black);
         cancel.setForeground(Color.white);
+        cancel.addActionListener(this);
         panel.add(cancel);
 
         Random ran = new Random();
@@ -105,6 +109,21 @@ public class NewCustomer extends JFrame {
         setSize(700, 500);
         setLocation(400, 200);
         setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if( e.getSource() == next){
+            String sname = nameText.getText();
+            String smeter = meterNumText.getText();
+            String saddress = addressText.getText();
+            String scity = cityText.getText();
+            String sstate = stateText.getText();
+            String semail = emailText.getText();
+            String sphone = phoneText.getText();
+
+            String queryCustomer
+        }
     }
 
     public static void main(String[] args) {
