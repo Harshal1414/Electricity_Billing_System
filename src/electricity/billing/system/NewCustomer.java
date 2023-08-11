@@ -122,7 +122,23 @@ public class NewCustomer extends JFrame implements ActionListener {
             String semail = emailText.getText();
             String sphone = phoneText.getText();
 
-            String queryCustomer
+            String queryCustomer = "insert into newCustomer values('"+sname+"', '"+smeter+"', '"+saddress+"', '"+scity+"', '"+sstate+"', '"+semail+"', '"+sphone+"')";
+            String querySignup = "insert into Signup values('"+smeter+"', '', '"+sname+"', '', '')";
+
+            try{
+                Database c = new Database();
+                c.statement.executeUpdate(queryCustomer);
+                c.statement.executeUpdate(querySignup);
+                JOptionPane.showMessageDialog(null, "Customer Details added successfully");
+                setVisible(false);
+                new MeterInfo(smeter);
+            }
+            catch(Exception ec){
+                ec.printStackTrace();
+            }
+        }
+        else{
+            setVisible(false);
         }
     }
 
