@@ -128,7 +128,7 @@ public class Signup extends JFrame implements ActionListener {
             try{
                 Database c = new Database();
                 String query= null;
-                if (loginASCho.equals("Admin")) {
+                if (sloginAs.equals("Admin")) {
                     query = "insert into Signup value('" + smeter + "', '" + susername + "', '" + sname + "','" + spassword + "','" + sloginAs + "')";
                 }else {
                     query = "update Signup set username = '"+susername+"', password = '"+spassword+"', usertype = '"+sloginAs+"' where meter_no = '"+smeter+"'";
