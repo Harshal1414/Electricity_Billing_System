@@ -2,10 +2,8 @@ package electricity.billing.system;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
+import java.awt.event.*;
+import java.sql.ResultSet;
 
 public class Signup extends JFrame implements ActionListener {
 
@@ -61,6 +59,27 @@ public class Signup extends JFrame implements ActionListener {
         nameText = new TextField("");
         nameText.setBounds(170,180,125,20);
         add(nameText);
+
+        meterText.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                try{
+                    Database c = new Database();
+                    ResultSet resultSet = c.statement.executeQuery("select * from Signup where meter_no = '"+meterText.getText()+"'");
+                    if(resultSet.next()){
+                        nameText.setText(resultSet.getString("name"));
+                    }
+                }
+                catch(Exception E){
+                    E.printStackTrace();
+                }
+            }
+        });
 
         JLabel password = new JLabel("Password");
         password.setBounds(30,220,125,20);
