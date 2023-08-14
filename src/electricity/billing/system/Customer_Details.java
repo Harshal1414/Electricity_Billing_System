@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 
 public class Customer_Details extends JFrame {
     Choice searchMeterCho, searchNameCho;
+    JButton search, print, close;
     JTable table;
     Customer_Details(){
         super("Customer Details");
@@ -55,11 +56,31 @@ public class Customer_Details extends JFrame {
             Database d = new Database();
             ResultSet resultSet = d.statement.executeQuery("select * from newCustomer");
 
-            table.setModel(DbUtils.);
+            table.setModel(DbUtils.resultSetToTableModel(resultSet));
         }
         catch(Exception e){
             e.printStackTrace();
         }
+
+        JScrollPane scrollPane = new JScrollPane(table);
+        scrollPane.setBounds(0, 100, 700, 400);
+        scrollPane.setBackground(Color.white);
+        add(scrollPane);
+
+        search = new JButton("Search");
+        search.setBackground(Color.white);
+        search.setBounds(20, 70, 80, 20);
+        add(search);
+
+        print = new JButton("Print");
+        print.setBackground(Color.white);
+        print.setBounds(120, 70, 80, 20);
+        add(print);
+
+        close = new JButton("Close");
+        close.setBackground(Color.white);
+        close.setBounds(600, 70, 80, 20);
+        add(close);
 
         setSize(700, 500);
         setLocation(400, 200);
