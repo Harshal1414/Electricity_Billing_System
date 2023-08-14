@@ -81,7 +81,7 @@ public class Login extends JFrame implements ActionListener {
 
                 if(resultSet.next()){
                     setVisible(false);
-                    new MainClass();
+                    new MainClass(user);
                 }
                 else{
                     JOptionPane.showMessageDialog(null, "Invalid Login");
