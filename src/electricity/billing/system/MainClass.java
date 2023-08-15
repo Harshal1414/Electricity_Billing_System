@@ -197,6 +197,8 @@ public class MainClass extends JFrame implements ActionListener {
             new Login();
         } else if (msg.equals("Pay Bill")) {
             new Pay_Bill(meter_pass);
+        } else if (msg.equals("Generate Bill")) {
+            new Generate_Bill(meter_pass);
         }
     }
 
