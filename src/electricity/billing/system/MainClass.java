@@ -176,6 +176,8 @@ public class MainClass extends JFrame implements ActionListener {
             new View_Information(meter_pass);
         } else if (msg.equals("Update Information")) {
             new Update_Information(meter_pass);
+        } else if (msg.equals("Bill Details")) {
+            new Bill_Details(meter_pass);
         }
     }
 
