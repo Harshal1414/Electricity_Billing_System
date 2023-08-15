@@ -83,7 +83,7 @@ public class MainClass extends JFrame implements ActionListener {
         user.setFont(new Font("serif", Font.PLAIN, 15));
 
 
-        JMenuItem payBill = new JMenuItem("View Information");
+        JMenuItem payBill = new JMenuItem("Pay Bill");
         payBill.setFont(new Font("monospaced", Font.PLAIN,14));
         ImageIcon payBillImg = new ImageIcon(ClassLoader.getSystemResource("icon/pay.png"));
         Image payBillImage = payBillImg.getImage().getScaledInstance(20,20,Image.SCALE_DEFAULT);
@@ -178,6 +178,25 @@ public class MainClass extends JFrame implements ActionListener {
             new Update_Information(meter_pass);
         } else if (msg.equals("Bill Details")) {
             new Bill_Details(meter_pass);
+        } else if (msg.equals("Calculator")) {
+            try {
+                Runtime.getRuntime().exec("calc.exe");
+            }
+            catch (Exception E){
+                E.printStackTrace();
+            }
+        } else if (msg.equals("Notepad")) {
+            try {
+                Runtime.getRuntime().exec("notepad.exe");
+            }
+            catch (Exception E){
+                E.printStackTrace();
+            }
+        } else if (msg.equals("Exit")) {
+            setVisible(false);
+            new Login();
+        } else if (msg.equals("Pay Bill")) {
+            new Pay_Bill(meter_pass);
         }
     }
 
